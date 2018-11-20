@@ -5,26 +5,45 @@ using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour {
 
-	public GameObject key;
-	public GameObject fran;
-	public float distance;
+	public GameObject magnetDefault;
 	
-	public Text testText;
+	public GameObject barDefault;
+	
+	public GameObject fran;
+	public GameObject magnetFran;
+	public GameObject barFran;
+	
+	public float franToMagnet, franToBar;
+	
+	public bool gotMagnet, gotBar;
 
 	// Use this for initialization
 	void Start () {
-		testText.text = "";
+		gotMagnet = false;
+		gotBar = false;
+		magnetFran.SetActive(false);
+		barFran.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 posS = key.transform.position;
-		Vector3 posC = fran.transform.position;	
-		distance = Vector3.Distance(posS, posC);
-		if (Vector3.Distance(posS, posC) < 1) {
-			testText.text = "Found !";
-		} else {
-			testText.text = "";	
+		Vector3 posF = fran.transform.position;	
+		Vector3 posM = magnetDefault.transform.position;
+		Vector3 posB = barDefault.transform.position;
+		
+		franToMagnet = Vector3.Distance(posM, posF);
+		franToBar = Vector3.Distance(posB, posF);
+		
+		if (gotMagnet || franToMagnet < 1.7) {
+			gotMagnet = true;
+			magnetFran.SetActive(true);
+			magnetDefault.SetActive(false);
+			
+			if(gotBar || franToBar < 1.7) {
+				gotBar = true;
+				barFran.SetActive(true);
+				barDefault.SetActive(false);
+			}
 		}
 	}
 }
