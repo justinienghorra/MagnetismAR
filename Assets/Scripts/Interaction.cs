@@ -18,6 +18,8 @@ public class Interaction : MonoBehaviour {
 	public float franToMagnet, franToBar;
 	
 	public bool gotMagnet, gotBar;
+	
+	//public Text test;
 
 	// Use this for initialization
 	void Start () {
@@ -46,9 +48,10 @@ public class Interaction : MonoBehaviour {
 				barFran.SetActive(true);
 				barDefault.SetActive(false);
 				
-				Vector3 posK = key.transform.position;
-				if (posK.x > 2){
-					key.transform.position -= new Vector3(0.005f, 0, 0);
+				Vector3 posK = key.transform.localPosition;
+				//test.text = key.transform.localPosition.x.ToString("R");
+				if (posK.x > 1.97F){
+					key.transform.localPosition = new Vector3(posK.x - 0.02F, posK.y, posK.z);
 				}	
 			}
 		}
