@@ -13,6 +13,8 @@ public class Interaction : MonoBehaviour {
 	public GameObject magnetFran;
 	public GameObject barFran;
 	
+	public GameObject key;
+	
 	public float franToMagnet, franToBar;
 	
 	public bool gotMagnet, gotBar;
@@ -39,10 +41,15 @@ public class Interaction : MonoBehaviour {
 			magnetFran.SetActive(true);
 			magnetDefault.SetActive(false);
 			
-			if(gotBar || franToBar < 1.7) {
+			if (gotBar || franToBar < 1.7) {
 				gotBar = true;
 				barFran.SetActive(true);
 				barDefault.SetActive(false);
+				
+				Vector3 posK = key.transform.position;
+				if (posK.x > 2){
+					key.transform.position -= new Vector3(0.005f, 0, 0);
+				}	
 			}
 		}
 	}
