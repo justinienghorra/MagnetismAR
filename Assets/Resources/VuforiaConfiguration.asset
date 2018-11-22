@@ -64,7 +64,7 @@ MonoBehaviour:
     autoInitTracker: 0
     autoStartTracker: 0
   webcam:
-    deviceNameSetInEditor: 
-    flipHorizontally: 0
+    deviceNameSetInEditor: Logitech HD Webcam C270
+    flipHorizontally: 1
     turnOffWebCam: 0
     renderTextureLayer: 30

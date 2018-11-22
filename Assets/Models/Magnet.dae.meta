@@ -32,7 +32,17 @@ ModelImporter:
     4300002: ID13
     4300004: ID19
     4300006: ID27
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color_A06
+    second: {fileID: 2100000, guid: 8b74d3912e598f64686934c077d254bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material
+    second: {fileID: 2100000, guid: 539dcc4728bb3e54b87568299d68b0b1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
